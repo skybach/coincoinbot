@@ -17,9 +17,9 @@ console.log(lastUpdateTime);
 var keys = ['USDT_BTC', 'BTC_ETH'];
 var pairs = {};
 
-var token = '216666846:AAGpVeq6_BEOAFF4IvFj801jyTbhHvH57ck';
+var token = process.env.COINCOINBOT_TOKEN;
 var bot = new Bot(token);
-bot.setWebHook('https://www.skyhiggs.com:88/' + bot.token, 'coincoin.pem');
+bot.setWebHook(process.env.COINCOINBOT_BASE_URL + '/' + bot.token, 'coincoin.pem');
 
 // Any kind of message
 bot.onText(/\/coin/, function (msg, match) {
@@ -43,12 +43,14 @@ bot.onText(/\/coin/, function (msg, match) {
 });
 
 function output(msg) {
+  var s = '';
   var fromId = msg.chat.id;
   for (var i=0; i<keys.length; i++) {
     var key = keys[i];
     console.log(key);
-    bot.sendMessage(fromId, key + ": " + pairs[key].last);
+    s + = key + ": " + pairs[key].last + '\n';
   }
+  bot.sendMessage(fromId, s);
 }
 
 app.post('/' + token, function (req, res) {
@@ -59,6 +61,6 @@ app.post('/' + token, function (req, res) {
 
 var server = https.createServer(options, app);
 
-server.listen(9999, function() {
+server.listen(process.env.COINCOINBOT_PORT, function() {
 	console.log('server started');
 });
