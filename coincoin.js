@@ -48,7 +48,7 @@ function output(msg) {
   for (var i=0; i<keys.length; i++) {
     var key = keys[i];
     console.log(key);
-    s + = key + ": " + pairs[key].last + '\n';
+    s += key + ": " + pairs[key].last + '\n';
   }
   bot.sendMessage(fromId, s);
 }
