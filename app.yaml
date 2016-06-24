@@ -3,7 +3,7 @@ vm: true
 env_variables: 
     BOT_TOKEN: '226053636:AAE1uPuboAxBiyIWEKybkwrVo5Z-vWXOnpw'
 health_check:
-    enable_health_check: true
+    enable_health_check: false
     check_interval_sec: 5
     timeout_sec: 4
     unhealthy_threshold: 2
