@@ -76,6 +76,6 @@ if (process.env.NODE_ENV == 'production')
 else
   server = http.createServer(app);
 
-server.listen(process.env.PORT, function() {
+server.listen(process.env.PORT, process.env.IP, function() {
 	console.log('server started');
 });
