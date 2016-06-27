@@ -4,7 +4,7 @@ env_variables:
     NODE_ENV: 'production'
     BOT_TOKEN: '226053636:AAE1uPuboAxBiyIWEKybkwrVo5Z-vWXOnpw'
     IP: '0.0.0.0'
-    PORT: 443
+    PORT: 8080
 health_check:
     enable_health_check: false
     check_interval_sec: 5
@@ -14,7 +14,7 @@ health_check:
     restart_threshold: 60
 skip_files:
 - ^node_modules$
-handlers:
-- url: /.*
-  script: coincoin.js
-  secure: always
+# handlers:
+# - url: /.*
+#   script: IGNORED
+#   secure: always
