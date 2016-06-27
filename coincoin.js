@@ -70,11 +70,7 @@ app.all('/', function (req, res) {
   res.end('hi');
 });
 
-var server;
-// if (process.env.NODE_ENV == 'production')
-//   server = https.createServer(app);
-// else
-  server = http.createServer(app);
+var server = http.createServer(app);
 
 server.listen(process.env.PORT, process.env.IP, function() {
 	console.log('server started');
