@@ -1,4 +1,5 @@
-require('@google/cloud-debug');
+if (process.env.NODE_ENV == 'production')
+  require('@google/cloud-debug');
 
 var https = require('https');
 var http = require('http');
@@ -19,6 +20,8 @@ var lastUpdateTime = 0;
 console.log(lastUpdateTime);
 var keys = ['USDT_BTC', 'BTC_ETH'];
 var pairs = {};
+var adCount = 0;
+var AD_COUNT_TRIGGER = 0;
 
 var token = process.env.BOT_TOKEN;
 var bot = new Bot(token);
@@ -46,6 +49,12 @@ bot.onText(/\/coin/, function (msg, match) {
     output(msg);
   }
 
+  adCount++;
+  if (adCount >= AD_COUNT_TRIGGER) {
+    bot.sendPhoto(msg.chat.id, './ads/genesis-1.png');
+    bot.sendMessage(msg.chat.id, '<a href="https://www.genesis-mining.com/a/16526">Click here to start mining now!</a>', {parse_mode: 'HTML'});
+    adCount = 0;
+  }
 });
 
 function output(msg) {
