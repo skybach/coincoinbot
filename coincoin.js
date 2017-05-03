@@ -7,9 +7,11 @@ var request = require('request');
 var Bot = require('node-telegram-bot-api');
 //var parser = require('body-parser');
 
+console.log("cwd: " + process.cwd());
+
 var options = {
-   key  : fs.readFileSync('coincoin.key'),
-   cert : fs.readFileSync('coincoin.pem')
+   key  : fs.readFileSync('./coincoin.key'),
+   cert : fs.readFileSync('./coincoin.pem')
 };
 
 var lastUpdateTime = 0;
