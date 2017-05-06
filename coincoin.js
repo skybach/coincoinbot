@@ -10,8 +10,10 @@ var Bot = require('node-telegram-bot-api');
 console.log("cwd: " + process.cwd());
 
 var options = {
-   key  : fs.readFileSync('./coincoin.key'),
-   cert : fs.readFileSync('./coincoin.pem')
+   key  : fs.readFileSync('./key.pem', 'utf8'),
+   cert : fs.readFileSync('./server.crt', 'utf8')
+//	key : fs.readFileSync('./coincoin.key.old', 'utf-8'),
+//	cert : fs.readFileSync('./coincoin.pem.old', 'utf-8')
 };
 
 var lastUpdateTime = 0;
@@ -21,7 +23,8 @@ var pairs = {};
 
 var token = process.env.COINCOINBOT_TOKEN;
 var bot = new Bot(token);
-bot.setWebHook(process.env.COINCOINBOT_BASE_URL + '/' + bot.token, 'coincoin.pem');
+bot.setWebHook(process.env.COINCOINBOT_BASE_URL + '/' + bot.token, './server.crt');
+//bot.setWebHook(process.env.COINCOINBOT_BASE_URL + '/' + bot.token, './coincoin.pem.old');
 
 // Any kind of message
 bot.onText(/\/coin/, function (msg, match) {
