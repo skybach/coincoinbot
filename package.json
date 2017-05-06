@@ -4,10 +4,8 @@
   "description": "",
   "main": "telequest.js",
   "dependencies": {
-    "@google/cloud-debug": "^0.8.3",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
-    "node-telegram-bot": "^0.1.9",
     "node-telegram-bot-api": "^0.21.1",
     "request": "*"
   },
