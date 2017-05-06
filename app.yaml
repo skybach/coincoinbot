@@ -1,0 +1,25 @@
+# GCP
+
+runtime: nodejs
+vm: true
+env_variables:
+    NODE_ENV: 'production'
+    # dev
+    # BOT_TOKEN: '226053636:AAE1uPuboAxBiyIWEKybkwrVo5Z-vWXOnpw'
+    # prd
+    BOT_TOKEN: '216666846:AAGpVeq6_BEOAFF4IvFj801jyTbhHvH57ck'
+    IP: '0.0.0.0'
+    PORT: 8080
+health_check:
+    enable_health_check: false
+    check_interval_sec: 5
+    timeout_sec: 4
+    unhealthy_threshold: 2
+    healthy_threshold: 2
+    restart_threshold: 60
+skip_files:
+- ^node_modules$
+handlers:
+- url: /.*
+  script: IGNORED
+  secure: always
