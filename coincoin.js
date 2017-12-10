@@ -18,7 +18,7 @@ var options = {
 
 var lastUpdateTime = 0;
 console.log(lastUpdateTime);
-var keys = ['USDT_BTC', 'BTC_ETH', 'BTC_LTC'];
+var keys = ['USDT_BTC', 'BTC_ETH', 'BTC_LTC', 'BTC_STR'];
 var pairs = {};
 
 var token = process.env.COINCOINBOT_TOKEN;
